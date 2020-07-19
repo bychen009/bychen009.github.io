@@ -7,7 +7,7 @@ author:     "Poplar"
 header-img: "img/post-bg-2015.jpg"
 tags:
     - GitHub Actions
-    - Hao4K
+    - Python
 ---
 
 > 这篇文章还未完善，随着学习的进行可能会发生变化。
@@ -24,7 +24,6 @@ tags:
 
 由于目标网站比较友好，几乎没有任何反爬虫设置，登陆过程也只需要用户名和密码，那么Python爬虫的实现就比较简单了，要点是利用requests.Session()实例实现登陆状态的保持，代码举例如下：
 
-	```python
 	import requests
 	
 	login_url = 'hao4k.cn'
@@ -39,7 +38,6 @@ tags:
 		if login_resp == 200:
 			signin_resp = s.get(signin_url)
 			print(signin_resp.status_code)
-	```
 
 ### GitHub Actions设置
 
@@ -84,11 +82,11 @@ tags:
 
 `jobs`字段是workflow的主体，表示要执行一项或多项任务，这里我们只设置了一个任务，叫做`sign_in`。
 
-- 3.1 jobs.sign_in.runs-on
+- jobs.sign_in.runs-on
 
 `runs-on`字段指定所需要运行的虚拟机，它是必填字段，这里指定最新版ubuntu。
 
-- 3.2 jobs.sign_in.steps
+- jobs.sign_in.steps
 
 `steps`字段指定每个job的步骤，可以包含一个或多个步骤，每个步骤可以包含三个字段：`name`步骤名称、`run`运行的命令、`env`该步骤所需的环境变量。
 
