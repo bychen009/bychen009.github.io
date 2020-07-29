@@ -34,10 +34,10 @@ tags:
 		}
 	def run(form_data):
 		s = requests.Session()
-		login_resp = s.post(login_url)
-		if login_resp == 200:
-			signin_resp = s.get(signin_url)
-			print(signin_resp.status_code)
+		login_resp = s.post(login_url, data=form_data)
+		signin_resp = s.get(signin_url)
+		if '您的签到排名' in signin_resp.text:
+			print('signin!')
 
 ### GitHub Actions设置
 
